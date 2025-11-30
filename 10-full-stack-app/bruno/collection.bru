@@ -1,0 +1,38 @@
+meta {
+  name: Full Stack App API
+}
+
+docs {
+  # Full Stack App API
+
+  A complete serverless API built with:
+  - API Gateway (REST API)
+  - Lambda Functions (Python)
+  - DynamoDB (NoSQL)
+  - SNS/SQS (Event messaging)
+
+  ## Base URL
+
+  LocalStack: `http://localhost:4566/restapis/{api_id}/dev/_user_request_`
+
+  ## Endpoints
+
+  | Method | Path | Description |
+  |--------|------|-------------|
+  | GET | /health | Health check |
+  | GET | /items | List all items |
+  | POST | /items | Create new item |
+  | GET | /items/:id | Get single item |
+
+  ## Getting Started
+
+  1. Deploy with Terraform:
+     ```bash
+     cd terraform-localstack-practice/10-full-stack-app
+     terraform apply
+     ```
+
+  2. Get the API ID from terraform output
+
+  3. Update the `api_id` environment variable in this collection
+}

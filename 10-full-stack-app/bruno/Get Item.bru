@@ -1,0 +1,63 @@
+meta {
+  name: Get Item
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/items/{{last_item_id}}
+  body: none
+  auth: none
+}
+
+docs {
+  # Get Item
+
+  Retrieves a single item by ID from DynamoDB.
+
+  ## Path Parameters
+
+  | Parameter | Description |
+  |-----------|-------------|
+  | id | The UUID of the item |
+
+  ## Response (200 OK)
+
+  ```json
+  {
+    "item": {
+      "id": "uuid-here",
+      "name": "Item Name",
+      "description": "Item description",
+      "created_at": "2025-11-30T14:47:43.879003",
+      "updated_at": "2025-11-30T14:47:43.879003"
+    }
+  }
+  ```
+
+  ## Response (404 Not Found)
+
+  ```json
+  {
+    "error": "Item not found",
+    "id": "uuid-here"
+  }
+  ```
+
+  ## Tip
+
+  Run "Create Item" first to set the `last_item_id` variable automatically.
+}
+
+assert {
+  res.status: eq 200
+  res.body.item.id: isString
+}
+
+tests {
+  test("should return item with correct ID", function() {
+    const data = res.getBody();
+    expect(data.item).to.have.property("id");
+    expect(data.item).to.have.property("name");
+  });
+}

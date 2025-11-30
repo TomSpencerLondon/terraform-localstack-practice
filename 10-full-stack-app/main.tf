@@ -31,6 +31,7 @@ provider "aws" {
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
+  s3_use_path_style           = true  # Required for LocalStack S3
 
   endpoints {
     apigateway = "http://localhost:4566"
@@ -376,8 +377,9 @@ resource "aws_lambda_function" "create_item" {
 
   environment {
     variables = {
-      TABLE_NAME    = aws_dynamodb_table.items.name
-      SNS_TOPIC_ARN = aws_sns_topic.item_events.arn
+      TABLE_NAME          = aws_dynamodb_table.items.name
+      SNS_TOPIC_ARN       = aws_sns_topic.item_events.arn
+      LOCALSTACK_ENDPOINT = var.localstack_endpoint
     }
   }
 
@@ -398,7 +400,8 @@ resource "aws_lambda_function" "get_items" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.items.name
+      TABLE_NAME          = aws_dynamodb_table.items.name
+      LOCALSTACK_ENDPOINT = var.localstack_endpoint
     }
   }
 
@@ -419,7 +422,8 @@ resource "aws_lambda_function" "get_item" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.items.name
+      TABLE_NAME          = aws_dynamodb_table.items.name
+      LOCALSTACK_ENDPOINT = var.localstack_endpoint
     }
   }
 
