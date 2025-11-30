@@ -255,6 +255,31 @@ resource "aws_s3_bucket" "example" {
 }
 ```
 
+## Shell Gotcha: Quoting in zsh
+
+When using `terraform state show` with `for_each` resources, you need to quote properly in zsh:
+
+```bash
+# This FAILS in zsh (brackets are interpreted as glob patterns)
+terraform state show aws_s3_bucket.buckets["logs"]
+# zsh: no matches found: aws_s3_bucket.buckets[logs]
+
+# This WORKS - wrap entire address in single quotes
+terraform state show 'aws_s3_bucket.buckets["logs"]'
+
+# Alternative - escape everything
+terraform state show aws_s3_bucket.buckets\[\"logs\"\]
+```
+
+**Why?** zsh treats `[` and `]` as glob pattern characters. Single quotes prevent all interpretation.
+
+This applies to any Terraform command with bracketed resource addresses:
+```bash
+terraform state show 'aws_s3_bucket.counted_buckets[0]'
+terraform taint 'aws_s3_bucket.buckets["data"]'
+terraform import 'aws_s3_bucket.buckets["logs"]' my-bucket
+```
+
 ## Next Steps
 
 Once comfortable, move to [Exercise 03: S3 Static Website](../03-s3-static-website/)

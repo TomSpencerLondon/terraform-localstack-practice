@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${site_name}</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>${site_name}</h1>
+            <p class="environment-badge ${environment}">${environment}</p>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h2>Welcome to Your Static Website!</h2>
+                <p>This website is hosted on Amazon S3 and deployed with Terraform.</p>
+            </section>
+
+            <section class="features">
+                <h3>What You've Learned</h3>
+                <ul>
+                    <li><strong>S3 Static Website Hosting</strong> - Serving HTML, CSS, and JS from S3</li>
+                    <li><strong>Bucket Policies</strong> - Allowing public read access</li>
+                    <li><strong>templatefile()</strong> - Injecting variables into HTML</li>
+                    <li><strong>S3 Objects</strong> - Uploading files with Terraform</li>
+                    <li><strong>Content Types</strong> - Setting proper MIME types</li>
+                </ul>
+            </section>
+
+            <section class="info">
+                <h3>Deployment Info</h3>
+                <table>
+                    <tr>
+                        <td>Environment:</td>
+                        <td><strong>${environment}</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Author:</td>
+                        <td><strong>${author}</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Deployed with:</td>
+                        <td><strong>Terraform + LocalStack</strong></td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built by ${author} | Terraform Learning Exercise 03</p>
+        </footer>
+    </div>
+</body>
+</html>
