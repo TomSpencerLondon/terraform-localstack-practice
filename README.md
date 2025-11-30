@@ -58,18 +58,18 @@ Each exercise folder contains:
 
 ## Exercises
 
-| # | Exercise | Concepts |
-|---|----------|----------|
-| 01 | [Hello S3](./01-hello-s3/) | Providers, resources, basic workflow |
-| 02 | [Variables & Outputs](./02-variables-outputs/) | Variables, outputs, data types |
-| 03 | [S3 Static Website](./03-s3-static-website/) | S3 website hosting, bucket policies |
-| 04 | [DynamoDB](./04-dynamodb/) | NoSQL tables, attributes |
-| 05 | [Lambda Function](./05-lambda/) | Lambda, IAM roles, permissions |
-| 06 | [API Gateway + Lambda](./06-api-gateway-lambda/) | REST APIs, integrations |
-| 07 | [SQS & SNS](./07-sqs-sns/) | Messaging, pub/sub |
-| 08 | [Secrets Manager](./08-secrets-manager/) | Secrets, KMS |
-| 09 | [VPC Networking](./09-vpc/) | VPCs, subnets, security groups |
-| 10 | [EC2 Instance](./10-ec2/) | Compute, AMIs, user data |
+| # | Exercise | Concepts | Status |
+|---|----------|----------|--------|
+| 01 | [Hello S3](./01-hello-s3/) | Providers, resources, basic workflow | Done |
+| 02 | [Variables & Outputs](./02-variables-outputs/) | Variables, outputs, data types | Done |
+| 03 | [S3 Static Website](./03-s3-static-website/) | S3 website hosting, bucket policies | Done |
+| 04 | [Lambda Functions](./04-lambda-functions/) | Lambda, IAM roles, permissions | Done |
+| 05 | [DynamoDB](./05-dynamodb/) | NoSQL tables, attributes | Done |
+| 06 | [API Gateway](./06-api-gateway/) | REST APIs, integrations | Done |
+| 07 | [SQS & SNS](./07-sqs-sns/) | Messaging, pub/sub | Done |
+| 08 | [IAM Deep Dive](./08-iam-deep-dive/) | Policies, roles, permissions | Done |
+| 09 | [VPC Networking](./09-vpc/) | VPCs, subnets, security groups | Done |
+| 10 | [Full Stack App](./10-full-stack-app/) | Complete serverless application | **Current** |
 
 ## Basic Terraform Workflow
 
